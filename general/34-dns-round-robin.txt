@@ -1,0 +1,14 @@
+# A tarefa é criar dois containers com o mesmo net-alias
+
+#Aqui foi criado um container com alias de search
+docker container run --name elastic_1 --net dns_net -d --net-alias search elasticsearch:2
+
+#Aqui foi criado o segundo container com o mesmo alias
+docker container run --name elastic_2 --net dns_net -d --net-alias search elasticsearch:2
+
+#Ao rodar o comando abaixo vemos que hora o comando cai no container 1, ora no container 2
+#Basta verificar o atributo name do JSON retornado do comando:
+
+docker container run --rm --net dns_net centos curl -s search:9200
+
+

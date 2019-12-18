@@ -1,0 +1,14 @@
+#Usar IP no Docker é um anti-padrão, pois o container
+#estar indisponível, por isso evite usando DNS
+
+#Quando os containers são criados na mesma rede, eles possuem acesso entre si
+
+docker container run -d my_nginx --network my_app_net nginx:alpine
+
+#Ao executar o comando acima, os containers da rede my_app_net,
+#já podem enxergar um no outro, conforme mostrado abaixo:
+
+docker exec -it my_nginx ping new_nginx
+
+#É possível usar o --link, na criação dos containers, para viabilizar a comunicação
+#porém é mais simples separá-los em networks separadas conforme fizemos no exemplo.

@@ -1,0 +1,13 @@
+#Volumes are used to map a directory inside a container for a directory in host machine
+
+#This command shows all volumes created on host machine
+docker volume list
+
+#Every time a container is created one volume is separed for this container, so it's necessary give them names
+#for find them easiest
+#On this command we've passed '-v mysqldb:/var/lib/mysql', this way we created a friendly name for our volume
+docker container run --name mysql -d -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysqldb:/var/lib/mysql mysql
+
+#When we execute this command, we'll see our named volume
+docker volume list
+

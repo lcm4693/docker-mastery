@@ -1,0 +1,21 @@
+#As imagens são listadas com User_name/imae_name,
+#porém imagens oficiais como mysql, nginx e ec, não possuem o User_name
+
+docker image list
+
+#This command below create a new image pointing to nginx:latest
+docker image tag nginx lcm4693/nginx:teste
+
+#To push this new image to Docker Hub, we need to log it and execute push command
+docker login
+docker image push lcm4693/nginx:teste
+
+#This command creates a new tag latest for nginx, so we can two tags for nginx (latest and teste)
+docker image tag lcm4693/nginx:teste lcm4693/nginx:latest
+
+#For push this new image to DockerHub
+docker image push lcm4693/nginx:latest
+
+#Now, if we access DockerHub we can see two tags in repository lcm4693/nginx
+latest
+teste

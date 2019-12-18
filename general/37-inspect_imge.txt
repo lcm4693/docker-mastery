@@ -1,0 +1,5 @@
+#O comando abaixo retorna um JSON contendo as informações da imagem
+docker image inspect nginx
+
+#Nesse arquivo podemos ver tudo que a imagem oferece.
+

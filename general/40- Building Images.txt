@@ -1,0 +1,3 @@
+#It's essential we keep the parts which change a lot of time
+#at the bottom file, cause if we put it at the top all layers down
+#should be recreated and it will take us a much time.
