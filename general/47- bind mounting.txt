@@ -1,0 +1,6 @@
+#When we use -v option for a container, we are creating a pointer in container to host
+
+#The example below uses an option -v for point the nginx resources for the actual directory
+docker container run -d -p 8080:80 --name nginx -v $(pwd):/usr/share/nginx/html nginx
+
+#It's important for keep the important files outside the containers and avoid loss them.
