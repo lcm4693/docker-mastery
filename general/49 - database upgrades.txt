@@ -1,0 +1,10 @@
+#I can use the volumes for keep files out of the container in order to update my software version when is necessary.
+#We have to keep the same volume and create a new container pointing for this old volume, so the old data will be available again.
+
+#This command below creates a container linked to a volume called "psql"
+docker container run -d --name psql -v psql:/var/lib/postgresql/data postgres:9.6.1
+
+#After that, we creates a new container with a high version of postgres pointing for the same volume "psql"
+docker container run -d --name psql2 -v psql:/var/lib/postgresql/data postgres:9.6.2
+
+#We have two containers with different versions pointing to the same volume.
