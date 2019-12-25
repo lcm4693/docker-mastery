@@ -1,0 +1,3 @@
+#For remove the volumes of the containers, we have to use -v flag.
+docker-compose down -v
+

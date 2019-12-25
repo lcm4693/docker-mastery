@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  content_management:
+    image:  drupal
+    networks: 
+      - rede_compose
+    ports:
+      - 8080:80
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+    depends_on:
+      - banco
+  banco:
+    image:  postgres:11
+    networks: 
+      - rede_compose
+    environment:
+      # POSTGRES_DB: drupal
+      # POSTGRES_USER: drupal
+      - POSTGRES_PASSWORD=123
+networks: 
+  rede_compose:
+
+volumes:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
